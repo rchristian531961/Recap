@@ -7,36 +7,37 @@ let dbConnect=require('../dbConnect')
 //Established the Instance 
 const sequelizeInstance=dbConnect.Sequelize
 
- N 
-
-    
-
 //Established a Schema(Model) for Users with class
-class User extends Model{}
-User.init(
+class Grades extends Model{}
+Grades.init(
     {
         id:{type:DataTypes.INTEGER,
             allowNull:false,
             autoIncrement:true,
             primaryKey:true
         },
-        firstName:{
+        classroom_id:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+            required:true
+        },
+        assignment_id:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+            required:true
+        },
+        student_id:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+            required:true
+        },
+        grades_letter:{
             type:DataTypes.STRING,
             allowNull:false,
             required:true
         },
-        lastName:{
-            type:DataTypes.STRING,
-            allowNull:false,
-            required:true
-        },
-        email:{
-            type:DataTypes.STRING,
-            allowNull:false,
-            required:true
-        },
-        password:{
-            type:DataTypes.STRING,
+        grades_percent:{
+            type:DataTypes.INTEGER,
             allowNull:false,
             required:true
         },
@@ -49,20 +50,10 @@ User.init(
     //default Scope: anytime model called excludes the password
     {
     sequelize:sequelizeInstance,
-    modelName:"users", 
+    modelName:"Grades", 
     timeStamps:true,
     freezeTableName:true,
-    defaultScope:{
-        attributes:{exclude:["password"]}
-    },
-    scopes:{
-        withPassword:{
-            attributes:[]
-        }
-    }
     }
 )
 
-module.exports=User;
-
-
+module.exports=Grades;
