@@ -80,3 +80,59 @@ const connectMySql=async()=>{
 }
 -Be sure to connect dbConnect file to server file. 
 const database=require("./----location)
+
+(9) Adding files to folders for set-up
+MVC-Structure for each Folder have index.js(Purpose is to export the files of use)
+--Models--
+(indexFile)
+'use strict'
+const User=require('./User)
+async function init(){
+    await User.sync     //Purpose is to sync User Model with Database
+}
+//Call Function 
+init()
+module.exports(User)
+
+--User--
+(userfile)
+const{Datatypes, Model}=required('sequelize')
+let dbConnect=require(---location--)
+const variable=dbConnect
+establishSchema with Class:
+    class --------{}
+    class.init(
+        {
+           id:{type:DataTypes.INTEGER,
+            allowNull:false,
+            autoIncrement:true,
+            primaryKey:true
+        },
+        firstName:{
+            type:DataTypes.STRING,
+            allowNull:false,
+            required:true
+        }, etc
+        },
+//Established link to database,name,scopes, password security
+        {
+    Sequelize:sequelizeInstance,
+    modelName:"users", 
+    timeStamps:true,
+    freezeTableName:true,
+    defaultScope:{
+        attributes:{exclude:["password"]}
+    },
+    scopes:{
+        withPassword:{
+            attributes:[]
+        }
+    }
+    }
+    )
+
+(10) Controllers Establish in Folders
+--Users--
+Imported bcrpyt to hide passcode and established function to access database 
+
+
