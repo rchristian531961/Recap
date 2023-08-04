@@ -13,12 +13,14 @@ const database=require('./dbConnect')
 
 //Routes Links Here && then establish the app.use(route-you-use,RouteNameInstance)
 const userRoute=require('./Routes/userRoutes')
+const authRoute=require("./Routes/authRoutes") //established authRoute
 
 
 //The express.json() function is a built-in middleware function in Express. 
 //It parses incoming requests with JSON payloads and is based on body-parser
 app.use(express.json())
 app.use("/api/users",userRoute)
+app.use("/api/auth",authRoute) //established route for Auth
 
 //testing for verification live server
 app.get("/",(req,res)=>{
