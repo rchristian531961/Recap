@@ -6,9 +6,6 @@ let dbConnect=require('../dbConnect')
 
 //Established the Instance 
 const sequelizeInstance=dbConnect.Sequelize
-
- N 
-
     
 
 //Established a Schema(Model) for Users with class

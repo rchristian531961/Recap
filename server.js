@@ -15,12 +15,15 @@ const database=require('./dbConnect')
 const userRoute=require('./Routes/userRoutes')
 const authRoute=require("./Routes/authRoutes") //established authRoute
 
+//testing the section routes
+const sectionRoute=require('./Routes/sectionRoutes')
 
 //The express.json() function is a built-in middleware function in Express. 
 //It parses incoming requests with JSON payloads and is based on body-parser
 app.use(express.json())
 app.use("/api/users",userRoute)
 app.use("/api/auth",authRoute) //established route for Auth
+app.use("/api/section",sectionRoute)
 
 //testing for verification live server
 app.get("/",(req,res)=>{
