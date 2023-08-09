@@ -5,5 +5,9 @@ module.exports = {
     //Export sectionController testing
     sectionController: require('./sectionController'),
     //Export GradesController testing
-    gradesController:require("./gradesController")
+    gradesController:require("./gradesController"),
+    //Export Assignments Controller
+    assignmentController:require("./assignmentController"),
+    //Export Classroom Controller
+    classroomController:require("./classroomController")
   }
