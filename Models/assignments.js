@@ -27,11 +27,13 @@ Assignments.init(
             required:true
         },
         //How to link section id?
-        section_id:{
-            type:DataTypes.INTEGER,
-            allowNull:false,
-            required:true
-        },
+        // section_id: {
+        //     type:DataTypes.INTEGER,
+        //     references: {
+        //         model: 'Section',// company migration define
+        //         key: 'id'
+        //     }
+        // }
 
     },
 

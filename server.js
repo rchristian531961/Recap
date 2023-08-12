@@ -22,7 +22,7 @@ const sectionRoute=require('./Routes/sectionRoutes')
 const gradesRoute=require("./Routes/gradesRoutes")
 
 //testing the classroom routes
-const classroomRoute=require("./Routes/classroomRoutes")
+const studentRoute=require("./Routes/studentRoutes")
 //testing the assignment route
 const assignmentRoute=require("./Routes/assignmentRoutes")
 
@@ -34,7 +34,7 @@ app.use("/api/auth",authRoute) //established route for Auth
 app.use("/api/section",sectionRoute)//established route for Section
 app.use("/api/grades",gradesRoute)//established route for grades
 app.use("/api/assignments",assignmentRoute)//established route for assignment
-app.use("/api/classroom",classroomRoute)//established route for classroom
+app.use("/api/student",studentRoute)//established route for classroom
 
 //testing for verification live server
 app.get("/",(req,res)=>{

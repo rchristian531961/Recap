@@ -10,4 +10,6 @@ router.post("/create", (req,res)=>{
     Controllers.gradesController.createGrades(req.body,res)
 })
 
+//remove grades route here
+
 module.exports=router;

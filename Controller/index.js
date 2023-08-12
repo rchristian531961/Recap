@@ -9,5 +9,5 @@ module.exports = {
     //Export Assignments Controller
     assignmentController:require("./assignmentController"),
     //Export Classroom Controller
-    classroomController:require("./classroomController")
+    studentController:require("./studentController")
   }

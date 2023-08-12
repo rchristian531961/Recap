@@ -4,10 +4,10 @@ let dbConnect=require("../dbConnect")
 
 const sequelizeInstance=dbConnect.Sequelize
 
-class Classroom extends Model{}
-Classroom.init(
+class Student extends Model{}
+Student.init(
     {
-        class_id:{
+        student_id:{
             type:DataTypes.INTEGER,
             allowNull:false,
             autoIncrement:true,
@@ -23,21 +23,25 @@ Classroom.init(
             allowNull:false,
             required:true
         },
-        //How to Link
-        student_id:{
-            type:DataTypes.STRING,
-            allowNull:false,
-            required:true
-        },
+        //Link Grades_id: Datatypes
+        // grades_id: {
+        //     type:DataTypes.INTEGER,
+        //     references: {
+        //         model: 'Grades',// company migration define
+        //         key: 'id'
+        //     }
+        // }
     },
 
     {
         sequelize:sequelizeInstance,
-        modelName:"Classroom",
+        modelName:"Students",
         timestamps:true,
         freezeTableName:true,
     }
 
 )
 
-module.exports=Classroom;
+
+
+module.exports=Student;

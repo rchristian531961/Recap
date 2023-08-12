@@ -27,12 +27,22 @@ Section.init(
             allowNull:false,
             required:true
         },
-        //? Link the Instructor Id Here How
-        instructor_id:{
-            type:DataTypes.INTEGER,
-            allowNull:false,
-            required:true
-        }
+        //Link Assignment_Ids
+        //Link Students_Ids
+        // student_ids: {
+        //     type:DataTypes.INTEGER,
+        //     references: {
+        //         model: 'Students',// company migration define
+        //         key: 'id'
+        //     }
+        // },
+        // assignment_ids:{
+        //     type:DataTypes.STRING,
+        //     references:{
+        //         model:'Assignments',
+        //         key:'id'
+        //     }
+        // }
     }, 
 
     {

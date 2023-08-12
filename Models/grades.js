@@ -16,21 +16,6 @@ Grades.init(
             autoIncrement:true,
             primaryKey:true
         },
-        classroom_id:{
-            type:DataTypes.INTEGER,
-            allowNull:false,
-            required:true
-        },
-        assignment_id:{
-            type:DataTypes.INTEGER,
-            allowNull:false,
-            required:true
-        },
-        student_id:{
-            type:DataTypes.INTEGER,
-            allowNull:false,
-            required:true
-        },
         grades_letter:{
             type:DataTypes.STRING,
             allowNull:false,
@@ -41,6 +26,13 @@ Grades.init(
             allowNull:false,
             required:true
         },
+        // assignment_id: {
+        //     type:DataTypes.INTEGER,
+        //     references: {
+        //         model: 'Assignments',// company migration define
+        //         key: 'id'
+        //     }
+        // }
 
     },
 
