@@ -4,6 +4,7 @@ const bcrypt=require('bcrypt')
 
 const Models=require('../Models')
 
+//these methods should be used in authority-------------------
 const getUsers=(res)=>{
     Models.User.findAll({}).
     then((data)=>{
@@ -21,7 +22,6 @@ const getUsers=(res)=>{
         throw err
     })
 }
-
 const getUsersById = (req, res) => {
     Models.User.findAll({ where: {id: req.params.id}})
       .then((data) => {
@@ -33,7 +33,6 @@ const getUsersById = (req, res) => {
         throw err
       })
   }
-  
   // Should not use this to create users from front end, instead use the auth route/controller
   // Leaving this here for your reference
   const createUsers = async (data, res) => {
@@ -54,8 +53,7 @@ const getUsersById = (req, res) => {
         console.log("Error:", err)
         throw err
       })
-  }
-  
+  } 
   const updateUser = (req, res) => {
     Models.User.update(req.body, { where: {id: req.params.id}})
       .then((data) => {
@@ -66,7 +64,6 @@ const getUsersById = (req, res) => {
         throw err
       })
   }
-  
   const deleteUser = (req, res) => {
     Models.User.destroy( {where: {id: req.params.id}})
       .then((data) => {
@@ -76,6 +73,13 @@ const getUsersById = (req, res) => {
         console.log("Error:", err)
         throw err
       })
+  }
+  //these methods should be used in authority-------------------
+
+  //Assign assignments to (SECTIONS) is given to user
+  const assignAssignments=(req,res)=>{
+  }
+  const deleteAssignments=(req,res)=>{
   }
   
   module.exports = {

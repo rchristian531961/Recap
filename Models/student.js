@@ -7,7 +7,7 @@ const sequelizeInstance=dbConnect.Sequelize
 class Student extends Model{}
 Student.init(
     {
-        student_id:{
+        student_ids:{
             type:DataTypes.INTEGER,
             allowNull:false,
             autoIncrement:true,
@@ -35,13 +35,11 @@ Student.init(
 
     {
         sequelize:sequelizeInstance,
-        modelName:"Students",
+        modelName:"students",
         timestamps:true,
         freezeTableName:true,
     }
 
 )
-
-
 
 module.exports=Student;

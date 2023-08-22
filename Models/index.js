@@ -11,37 +11,40 @@ const Student = require('./student');
 
 async function init() {
   //await the Section
-  await Section.sync({force:true})
+  await Section.sync({alter:true})
   //await for Users
-  await User.sync()
+  // await User.sync({alter:true})
   //await for grades
-  await Grades.sync()
+  // await Grades.sync({alter:true})
   //await assignments
-  await Assignments.sync()
+  await Assignments.sync({alter:true})
   //await classroom
-  await Student.sync()
-
-  // initAssociation();
-
-  //Associations
-  // Section.hasMany(User,{foreignKey:"section_ids"})
-  // User.hasMany(Section,{foreignKey:"section_ids"})
-  // Section.belongsTo(User,{foreignKey:"section_ids"})
+  await Grades.sync({alter:true})
+  await Student.sync({alter:true})
+  await Section.sync({alter:true})
+  await User.sync({alter:true})
 }
 
 
 //Create Tables First then implement Connections between tables
 function initAssociation(){
-  Section.hasMany(User,{foreignKey:"section_ids"})
-  Student.hasMany(Section,{foreignKey:"student_ids"})
-  Grades.hasMany(Student,{foreignKey:"grades_id"})
-  Assignments.hasMany(Section,{foreignKey:"assignment_ids"})
-  Assignments.hasOne(Grades,{foreignKey:"assignment_id"})
-  Section.hasOne(Assignments,{foreignKey:"section_id"})
+   Section.hasMany(User,{foreignKey:"section_ids",onDelete:"CASCADE", onUpdate:"CASCADE", })
+   Student.hasMany(Section,{foreignKey:"student_ids",onDelete:"CASCADE", onUpdate:"CASCADE",})
+   Grades.hasMany(Student,{foreignKey:"grade_ids",onDelete:"CASCADE", onUpdate:"CASCADE",})
+   Assignments.hasMany(Section,{foreignKey:"assignment_ids",onDelete:"CASCADE", onUpdate:"CASCADE",})
+   Section.hasOne(Assignments,{foreignKey:"section_id",onDelete:"CASCADE", onUpdate:"CASCADE",})
+   Assignments.hasMany(Section,{foreignKey:"assignment_ids",onDelete:"CASCADE", onUpdate:"CASCADE",})
+   Assignments.hasOne(Grades,{foreignKey:"assignment_id",onDelete:"CASCADE",onUpdate:"CASCADE"})
 }
 
-init()
+try{
+  init()
+}catch(err){
+  console.log(err)
+}finally{
+  initAssociation()
+}
 
 module.exports = {
-  User,Section,Grades, Assignments,Student
+  User,Section,Grades,Assignments,Student
 }

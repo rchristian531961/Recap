@@ -58,6 +58,18 @@ const loginUserByEmail = (req, res) => {
         throw err
       })
   }
+
+//Assign Sections to Instructors (Foreign Key Implimentation
+const assignSection=async (req,res)=>{
+
+}
+
+//Assign Students to Instructor (Foreign Key Implication)
+const assignStudents=async(req,res)=>{
+
+}
+
+//
   
   module.exports = {
     signUpUser, loginUserByEmail

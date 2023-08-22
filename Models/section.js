@@ -11,7 +11,7 @@ const sequelizeInstance=dbConnect.Sequelize
 class Section extends Model{}
 Section.init(
     {
-        id:{
+        section_ids:{
             type:DataTypes.INTEGER,
             autoIncrement:true, //auto places
             allowNull:false,
@@ -30,16 +30,18 @@ Section.init(
         //Link Assignment_Ids
         //Link Students_Ids
         // student_ids: {
-        //     type:DataTypes.INTEGER,
+        //     type:DataTypes.JSON,
+        //     allowNull:true,
         //     references: {
-        //         model: 'Students',// company migration define
+        //         model: 'students',
         //         key: 'id'
         //     }
         // },
         // assignment_ids:{
-        //     type:DataTypes.STRING,
+        //     type:DataTypes.JSON,
+        //     allowNull:true,
         //     references:{
-        //         model:'Assignments',
+        //         model:'assignments',
         //         key:'id'
         //     }
         // }
@@ -47,11 +49,11 @@ Section.init(
 
     {
         sequelize:sequelizeInstance,
-        modelName:"Section",
+        modelName:"section",
         timestamps:true,
         freezeTableName:true,
-        //scopes? defaultScope?
     }
 )
+// User.belongsTo(Section,{foreignKey:"user_id"})
 
 module.exports=Section;

@@ -63,5 +63,5 @@ const createGrades=async(data,res)=>{
 }
 
 module.exports={
-    createGrades,getGrades
+    createGrades,getGrades,updateGrades,getGradesById,deleteGrades
 }

@@ -1,5 +1,5 @@
 //Establishing variables that need sequelize for my Schemas
-const {DataTypes, Model, Sequelize}=require('sequelize')
+const {DataTypes, Model, Sequelize, ARRAY}=require('sequelize')
 
 //Established the connection for database Connection
 let dbConnect=require('../dbConnect')
@@ -13,7 +13,7 @@ const sequelizeInstance=dbConnect.Sequelize
 class User extends Model{}
 User.init(
     {
-        id:{type:DataTypes.INTEGER,
+        user_id:{type:DataTypes.INTEGER,
             allowNull:false,
             autoIncrement:true,
             primaryKey:true
@@ -39,14 +39,7 @@ User.init(
             required:true
         },
         //section ID_s Here
-        // section_ids: {
-        //     type: Sequelize.INTEGER,
-        //     allowNull:true,
-        //     references: {
-        //         model: 'Section',
-        //         key: 'id'
-        //     }
-        // },
+        
     },
 
     //Connects Class to Database
@@ -55,7 +48,7 @@ User.init(
     //default Scope: anytime model called excludes the password
     {
     sequelize:sequelizeInstance,
-    modelName:"Users", 
+    modelName:"users", 
     timeStamps:true,
     freezeTableName:true,
     defaultScope:{
@@ -71,7 +64,7 @@ User.init(
 
 //delete if needed
 // Section.hasMany(User,{foreignKey:"section_ids"})
-// User.belongsTo(User,{foreignKey:"user_id"})
+// User.belongsTo(Section,{foreignKey:"user_id"})
 
 module.exports=User;
 

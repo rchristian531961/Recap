@@ -11,7 +11,7 @@ const sequelizeInstance=dbConnect.Sequelize
 class Assignments extends Model{}
 Assignments.init(
     {
-        assignment_id:{type:DataTypes.INTEGER,
+        assignment_ids:{type:DataTypes.INTEGER,
             allowNull:false,
             autoIncrement:true,
             primaryKey:true
@@ -43,7 +43,7 @@ Assignments.init(
     //default Scope: anytime model called excludes the password
     {
     sequelize:sequelizeInstance,
-    modelName:"Assignments", 
+    modelName:"assignments", 
     timeStamps:true,
     freezeTableName:true,
     }

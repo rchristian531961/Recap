@@ -11,7 +11,7 @@ const sequelizeInstance=dbConnect.Sequelize
 class Grades extends Model{}
 Grades.init(
     {
-        id:{type:DataTypes.INTEGER,
+        grade_ids:{type:DataTypes.INTEGER,
             allowNull:false,
             autoIncrement:true,
             primaryKey:true
@@ -42,7 +42,7 @@ Grades.init(
     //default Scope: anytime model called excludes the password
     {
     sequelize:sequelizeInstance,
-    modelName:"Grades", 
+    modelName:"grades", 
     timeStamps:true,
     freezeTableName:true,
     }
